@@ -1,0 +1,21 @@
+{
+  "contextMenu": [
+    { "name": "Add Folder", "type": "folder" },
+
+    {
+      "name": "Add App",
+      "subOptions": [
+        { "name": "Notepad", "icon": "./images/setting.png", "type": "app", "alt": "notepad"},
+        { "name": "Settings", "icon": "./images/notepad.png", "type": "app",  "alt": "setting"}
+      ]
+    },
+    {
+      "name": "Add File",
+      "subOptions": [
+        { "name": "Word", "type": "file", "extension": ".docx" },
+        { "name": "Excel", "type": "file", "extension": ".xlsx" },
+        { "name": "PowerPoint", "type": "file", "extension": ".ppt" }
+      ]
+    }
+  ]
+}
