@@ -22,21 +22,21 @@ export default function Login() {
 
   return (
     <div className="flex-container">
-      <img src={wallpaper} className="left-image"></img>
+      <img src={wallpaper} className="left-image" alt="wallpaper not found"></img>
       <div className="spacer"></div>
-      <img src={wallpaper} className="right-image"></img>
+      <img src={wallpaper} className="right-image" alt="wallpaper not found"></img>
       <div className="card">
         <div className="logo-container">
-          <img src={logo} className="logo" />
+          <img src={logo} className="logo" alt="logo not found"/>
         </div>
         <div style={{ display: "flex" }}>
-          <div class="blob-container">
-            <div class="profile-image">
-              <img src={profile} className="profile-image" />
+          <div className="blob-container">
+            <div className="profile-image">
+              <img src={profile} className="profile-image" alt="profile missing"/>
             </div>
           </div>
           <div style={{ width: "53%" }}>
-            <h5>Welcome back...</h5>
+            <h2>Welcome back...</h2>
             <input
               placeholder="username"
               name="username"

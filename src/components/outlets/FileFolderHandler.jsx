@@ -16,24 +16,17 @@ export default function FileFolderHandler({ menuPosition, setMenuPosition, data,
   }, [menuPosition]);
 
   const hanldeAdd = (event, item, extension) => {
-    console.log('Child handler called', item.type);
     event.stopPropagation();
     if(item.type==="app"){
-        console.log("inside app")
         setApps([...apps, {icon: item.icon, alt: item.alt}])
     }
     else{
-        console.log("else")
     setIsModalOpen({visibility: true, type:item.type, extension: extension ? extension : ""});
     }
     setSubOptions({visibility:false});
     setMenuPosition({...menuPosition, visible: false})
 
   };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);  
-};
 
 const handleAddFolder=(structure)=>{
     if(structure.extension.length > 0){
@@ -46,11 +39,8 @@ setIsModalOpen(false)
 
 const handleSubOptions=(mainOption,event)=>{
     event.stopPropagation();
-    console.log(mainOption)
 setSubOptions({visibility: true, options:mainOption.subOptions })
 }
-
-console.log(apps)
 
   return (
     <div>

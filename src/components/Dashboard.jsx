@@ -1,22 +1,22 @@
 import "./dashboard.css";
 import wallpaper from "./images/wallpaper.png";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import FileFolderHandler from "./outlets/FileFolderHandler";
 import TimeAndDate from "./outlets/TimeAndDate";
-import folder from "./images/folder.png"
-import file from './images/file.png'
-import logo from './images/logo.png'
+import folder from "./images/folder.png";
+import file from "./images/file.png";
+import logo from "./images/logo.png";
 import { displayData } from "./data/displayData";
 
 export default function Dashboard() {
   const [menuPosition, setMenuPosition] = useState(null);
-  const [data, setData] = useState([])
-  const [apps, setApps] = useState(displayData.apps)
-
+  const [data, setData] = useState([]);
+  const [apps, setApps] = useState(displayData.apps);
+  const [hoveredItem, setHoveredItem] = useState(null)
 
   const handleCloseContextMenu = () => {
     if (menuPosition?.visible) {
-        setMenuPosition({ ...menuPosition, visible: false });
+      setMenuPosition({ ...menuPosition, visible: false });
     }
   };
 
@@ -32,7 +32,7 @@ export default function Dashboard() {
   return (
     <div className="dashboard-container">
       <div
-        style={{ background: `url(${wallpaper})`, backgroundSize: "cover"}}
+        style={{ background: `url(${wallpaper})`, backgroundSize: "cover" }}
         className="image-container"
         onContextMenu={handleMenuPosition}
         onClick={handleCloseContextMenu}
@@ -43,23 +43,50 @@ export default function Dashboard() {
           ))}
         </div>
         <div className="time-date">
-        <TimeAndDate/>
+          <TimeAndDate />
         </div>
-        <FileFolderHandler menuPosition={menuPosition} setMenuPosition={setMenuPosition} data={data} setData={setData} apps={apps} setApps={setApps}/>
+        <FileFolderHandler
+          menuPosition={menuPosition}
+          setMenuPosition={setMenuPosition}
+          data={data}
+          setData={setData}
+          apps={apps}
+          setApps={setApps}
+        />
         <div className="apps-container">
           {apps?.map((app, index) => (
             <img key={index} src={app.icon} alt={app.alt} className="app" />
           ))}
         </div>
       </div>
-      <div className="memory-container" style={{justifyContent: data.length > 0? "space-between": "end"}}>
-        {data?.length > 0 && data.map((item)=>(
-            <div className="file-container">
-                <img className="file-size" src={item.type === "folder" ? folder : file} alt=""></img>
-                <p style={{margin: 0}}>{item.name}</p>
+      <div
+        className="memory-container"
+      >
+        <div style={{display:"flex", gap:"15px"}}>
+        {data?.length > 0 &&
+          data.map((item, index) => (
+            <div className="file-container" key={index}
+            onMouseEnter={()=>setHoveredItem(index)}
+            onMouseLeave={()=> setHoveredItem(null)}
+            >
+              <div className="tooltip bubble-bottom-left" style={{display: index===hoveredItem ? "block": "none"}}>
+                <div className="bubble ">
+                  <div className="content">
+                    <h3 style={{marginBottom:"0px"}}>Hello!</h3>
+                    <p style={{padding: "0px 10px 0 10px", margin: "0px"}}>What are you looking for?</p>
+                  </div>
                 </div>
-        ))}
-        <img className="file-size" src={logo} alt={logo}/>
+              </div>
+              <img
+                className="file-size"
+                src={item.type === "folder" ? folder : file}
+                alt=""
+              ></img>
+              
+            </div>
+          ))}
+          </div>
+        <img className="file-size" src={logo} alt={logo} />
       </div>
     </div>
   );
