@@ -5,8 +5,8 @@
     {
       "name": "Add App",
       "subOptions": [
-        { "name": "Notepad", "icon": "./images/setting.png", "type": "app", "alt": "notepad"},
-        { "name": "Settings", "icon": "./images/notepad.png", "type": "app",  "alt": "setting"}
+        { "name": "Notepad", "icon": "https://assets.dryicons.com/uploads/icon/svg/6265/b314d79e-acd7-49f0-b63d-93cf5a616ce6.svg", "type": "app", "alt": "notepad"},
+        { "name": "Settings", "icon": "https://cdn.iconscout.com/icon/free/png-512/free-apple-settings-1-493162.png?f=webp&w=256", "type": "app",  "alt": "setting"}
       ]
     },
     {
