@@ -31,7 +31,7 @@ export default function Login() {
         </div>
         <div style={{ display: "flex" }}>
           <div className="blob-container">
-            <div className="profile-image">
+            <div className="profile-container">
               <img src={profile} className="profile-image" alt="profile missing"/>
             </div>
           </div>
