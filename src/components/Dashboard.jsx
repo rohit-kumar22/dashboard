@@ -1,24 +1,29 @@
 import "./dashboard.css";
 import wallpaper from "./images/wallpaper.png";
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import FileFolderHandler from "./outlets/FileFolderHandler";
 import TimeAndDate from "./outlets/TimeAndDate";
 import folder from "./images/folder.png";
-import file from "./images/file.png";
 import logo from "./images/logo.png";
 import { displayData } from "./data/displayData";
 
 export default function Dashboard() {
   const [menuPosition, setMenuPosition] = useState(null);
   const [data, setData] = useState([]);
-  const [apps, setApps] = useState(displayData.apps);
+  const [apps, setApps] = useState(null);
   const [hoveredItem, setHoveredItem] = useState(null)
+  const [files, setFiles] = useState(null);
 
   const handleCloseContextMenu = () => {
     if (menuPosition?.visible) {
       setMenuPosition({ ...menuPosition, visible: false });
     }
   };
+
+  useEffect(()=>{
+    setApps(displayData.apps);
+    setFiles(displayData.files)
+  },[])
 
   const handleMenuPosition = (event) => {
     event.preventDefault();
@@ -79,10 +84,10 @@ export default function Dashboard() {
               </div>
               <img
                 className="file-size"
-                src={item.type === "folder" ? folder : file}
+                src={item.type === "folder" ? folder : files[item.type].icon}
                 alt=""
               ></img>
-              
+              <p className="file-name">{item.name}</p>
             </div>
           ))}
           </div>

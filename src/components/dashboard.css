@@ -3,7 +3,7 @@
 }
 
 .image-container {
-  height: 90vh;
+  height: 87vh;
   background-size: contain;
   background-repeat: no-repeat;
   position: relative;
@@ -113,7 +113,7 @@
     border-radius: 50%;
     text-align: center;
     background-color: #ffd700;
-    bottom: 65px;
+    bottom: 80px;
 }
 
 
@@ -130,6 +130,21 @@
     left: 20px;
     bottom: -5px;
     background-color: #ffd700;
+}
+
+.file-container{
+    width: 60px;
+    text-align: center;
+}
+
+.file-name{
+    display: inline-block;
+    width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin: 0px;
 }
 
   

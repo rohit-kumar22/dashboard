@@ -12,9 +12,9 @@
     {
       "name": "Add File",
       "subOptions": [
-        { "name": "Word", "type": "file", "extension": ".docx" },
-        { "name": "Excel", "type": "file", "extension": ".xlsx" },
-        { "name": "PowerPoint", "type": "file", "extension": ".ppt" }
+        { "name": "Word", "type": "word", "extension": ".docx" },
+        { "name": "Excel", "type": "excel", "extension": ".xlsx" },
+        { "name": "PowerPoint", "type": "powerpoint", "extension": ".ppt" }
       ]
     }
   ]

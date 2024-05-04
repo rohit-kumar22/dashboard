@@ -2,18 +2,23 @@ import './fileFolder.css'
 import config from "../config.json";
 import { useState, useEffect } from "react";
 import folder from '../images/folder.png';
-import file from '../images/file.png'
+import { displayData } from '../data/displayData';
 
 export default function FileFolderHandler({ menuPosition, setMenuPosition, data, setData, apps, setApps }) {
     const [isModalOpen, setIsModalOpen] = useState({visibility:false, type:""});
   const [suboptions, setSubOptions] = useState({visibility: false, Options:[]});
-  const [name, setName]= useState("")
+  const [name, setName]= useState("");
+  const [filesIcons, setFilesIcon]= useState(null)
 
   useEffect(() => {
     if (!menuPosition?.visible) {
         setSubOptions({visibility:false});
     }
   }, [menuPosition]);
+
+  useEffect(()=>{
+setFilesIcon(displayData?.files)
+  },[])
 
   const hanldeAdd = (event, item, extension) => {
     event.stopPropagation();
@@ -76,7 +81,7 @@ setSubOptions({visibility: true, options:mainOption.subOptions })
                 <div className="modal">
                     <div className="modal-content">
                         <p>Enter {isModalOpen.type} Name</p>
-                        <img className='folder-image' src={isModalOpen.type === "folder" ? folder : file} alt="folder"/>
+                        <img className='folder-image' src={isModalOpen.type === "folder" ? folder : filesIcons[isModalOpen.type].icon} alt="folder"/>
                         <input type="text" placeholder={`Enter ${isModalOpen.type} Name..`} onChange={(e)=>{setName(e.target.value)}}/>
                         <button disabled={name.length<1} onClick={()=>handleAddFolder(isModalOpen)}>Done</button>
                     </div>
