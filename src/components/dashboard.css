@@ -95,3 +95,32 @@
     margin: 0;
     border-radius: 5px;
 }
+
+/* .file-container{
+    background-color: blue;
+}
+.file-container:before{
+content: "";
+width: "0px";
+height: "0px";
+position: absolute;
+border-left: 24px solid #fff;
+border-right: 12px solid transparent;
+border-top: 12px solid #fff;
+border-bottom: 20px solid transparent;
+left: "65px";
+bottom: "-4px";
+background-color: yellow;
+z-index: 1000000;
+ } */
+
+ .memory-container{
+    display:flex;
+     justify-content: space-between; 
+     padding: 15px 20px 0 20px;
+ }
+
+ .file-size{
+height: 30px;
+width: 30px;
+ }

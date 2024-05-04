@@ -5,6 +5,7 @@ import FileFolderHandler from "./outlets/FileFolderHandler";
 import TimeAndDate from "./outlets/TimeAndDate";
 import folder from "./images/folder.png"
 import file from './images/file.png'
+import logo from './images/logo.png'
 import { displayData } from "./data/displayData";
 
 export default function Dashboard() {
@@ -51,13 +52,14 @@ export default function Dashboard() {
           ))}
         </div>
       </div>
-      <div style={{display:"flex", gap:"15px", padding: "15px 20px 0 20px"}}>
+      <div className="memory-container" style={{justifyContent: data.length > 0? "space-between": "end"}}>
         {data?.length > 0 && data.map((item)=>(
-            <div>
-                <img style={{width:"30px", height:"30px"}} src={item.type === "folder" ? folder : file} alt=""></img>
+            <div className="file-container">
+                <img className="file-size" src={item.type === "folder" ? folder : file} alt=""></img>
                 <p style={{margin: 0}}>{item.name}</p>
                 </div>
         ))}
+        <img className="file-size" src={logo} alt={logo}/>
       </div>
     </div>
   );
