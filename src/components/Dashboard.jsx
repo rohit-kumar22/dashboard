@@ -45,7 +45,7 @@ export default function Dashboard() {
       >
         <div className="utilities-container">
           {displayData.utilities.map((item, index) => (
-            <img key={index} src={item.icon} alt={item.alt} />
+            <img className="icons" key={index} src={item.icon} alt={item.alt} />
           ))}
         </div>
         <div className="time-date">
