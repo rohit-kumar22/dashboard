@@ -35,9 +35,10 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="dashboard-container"
+    style={{ background: `url(${wallpaper})`, backgroundSize: "100% 100%" }}
+    >
       <div
-        style={{ background: `url(${wallpaper})`, backgroundSize: "cover" }}
         className="image-container"
         onContextMenu={handleMenuPosition}
         onClick={handleCloseContextMenu}
@@ -91,7 +92,7 @@ export default function Dashboard() {
             </div>
           ))}
           </div>
-        <img className="file-size" src={logo} alt={logo} />
+        <img className="file-size" id="logo" src={logo} alt={logo} />
       </div>
     </div>
   );
